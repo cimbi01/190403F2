@@ -1,21 +1,37 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace _190403F2
 {
-    class Program
+    internal static class Test
     {
-        static void Main(string[] args)
-        {
-            // The code provided will print ‘Hello World’ to the console.
-            // Press Ctrl+F5 (or go to Debug > Start Without Debugging) to run your app.
-            Console.WriteLine("Hello World!");
-            Console.ReadKey();
+        #region Public Methods
 
-            // Go to http://aka.ms/dotnet-get-started-console to continue learning how to build a console app! 
+        public static double Terfogat(double a, double m)
+        {
+            return a * m;
         }
+
+        #endregion Public Methods
+    }
+    internal class Program
+    {
+        #region Private Delegates
+
+        private delegate double terfogat(double a, double b);
+
+        #endregion Private Delegates
+
+        #region Private Methods
+
+        private static void Main(string[] args)
+        {
+            terfogat terfogatszamitas = new terfogat(Test.Terfogat);
+            double szam1 = AdatBekeres.EllenorzottBekeres<double>("Add meg az egyik számot");
+            double szam2 = AdatBekeres.EllenorzottBekeres<double>("Add meg a másik számot");
+            Console.WriteLine(terfogatszamitas(szam1, szam2));
+            Console.ReadKey();
+        }
+
+        #endregion Private Methods
     }
 }
